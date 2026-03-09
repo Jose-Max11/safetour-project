@@ -1,7 +1,7 @@
 // utils/api.js — Frontend API utility
 // Place this at: src/utils/api.js
 
-const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001/api';
+const BASE_URL = process.env.REACT_APP_API_URL || 'https://safetour-project-2.onrender.com/api';
 
 // ─── Helper ──────────────────────────────────────────────────────────────────
 async function request(path, options = {}) {
