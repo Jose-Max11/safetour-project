@@ -6,7 +6,7 @@ const rateLimit = require('express-rate-limit');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 
 // ─── Security Middleware ─────────────────────────────────────────────────────
 app.use(helmet());
@@ -48,19 +48,16 @@ app.use((err, req, res, next) => {
   console.error('Error:', err.message);
   res.status(err.status || 500).json({ error: err.message || 'Internal server error' });
 });
-
-app.listen(PORT, () => {
-  console.log(`\n🌍 SafeTour API running on http://localhost:${PORT}`);
-  console.log(`📍 Environment: ${process.env.NODE_ENV || 'development'}\n`);
-});
 app.get("/", (req, res) => {
   res.send("API SafeTour Online!");
 });
 
 app.get("/api/test", (req, res) => {
-  res.json({ message: "SafeTour API working successfully!" });
+  res.json({ message: "API working!" });
 });
 
-app.listen(5000, () => {
-  console.log("Server running");
+
+app.listen(PORT, () => {
+  console.log(`\n🌍 SafeTour API running on http://localhost:${PORT}`);
+  console.log(`📍 Environment: ${process.env.NODE_ENV || 'development'}\n`);
 });

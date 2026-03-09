@@ -4,10 +4,12 @@ const axios = require('axios');
 
 // Maps our type names to OpenStreetMap amenity tags
 const typeToOSM = {
-  hospital:     '["amenity"="hospital"]',
-  pharmacy:     '["amenity"="pharmacy"]',
-  police:       '["amenity"="police"]',
+  hospital: '["amenity"="hospital"]',
+  pharmacy: '["amenity"="pharmacy"]',
+  police: '["amenity"="police"]',
   fire_station: '["amenity"="fire_station"]',
+  atm: '["amenity"="atm"]',
+  hotel: '["tourism"="hotel"]'
 };
 
 // GET /api/places/nearby?lat=9.14&lon=77.83&type=hospital
