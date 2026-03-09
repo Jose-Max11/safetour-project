@@ -11,7 +11,6 @@ const typeToOSM = {
   atm: '["amenity"="atm"]',
   hotel: '["tourism"="hotel"]'
 };
-
 // GET /api/places/nearby?lat=9.14&lon=77.83&type=hospital
 router.get('/nearby', async (req, res) => {
   try {
