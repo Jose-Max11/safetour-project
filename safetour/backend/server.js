@@ -10,8 +10,19 @@ const PORT = process.env.PORT || 5001;
 
 // ─── Security Middleware ─────────────────────────────────────────────────────
 app.use(helmet());
+const allowedOrigins = [
+  'http://localhost:3000', // local testing
+  'https://safetour-project-n9oqj8ad2-joses-projects-128a13a8.vercel.app' // replace with actual Vercel URL
+];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed'));
+    }
+  },
   credentials: true
 }));
 app.use(morgan('dev'));
