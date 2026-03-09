@@ -53,3 +53,14 @@ app.listen(PORT, () => {
   console.log(`\n🌍 SafeTour API running on http://localhost:${PORT}`);
   console.log(`📍 Environment: ${process.env.NODE_ENV || 'development'}\n`);
 });
+app.get("/", (req, res) => {
+  res.send("API SafeTour Online!");
+});
+
+app.get("/api/test", (req, res) => {
+  res.json({ message: "SafeTour API working successfully!" });
+});
+
+app.listen(5000, () => {
+  console.log("Server running");
+});
